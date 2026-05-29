@@ -6,7 +6,7 @@ import { decrypt } from './lib/session';
 const protectedRoutes = ['/dashboard'];
 const authRoutes = ['/signup', '/login'];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isProtectedRoute = protectedRoutes.some((route) => path.startsWith(route));
   const isAuthRoute = authRoutes.some((route) => path.startsWith(route));
